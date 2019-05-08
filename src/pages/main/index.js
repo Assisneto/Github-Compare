@@ -1,7 +1,7 @@
 import React from 'react';
 
 import logo from '../../assets/logo.png';
-import { Container, Form } from './style';
+import { Container, Form } from './styles';
 import CompareList from '../../components/CompareList/index';
 
 const Main = () => (
