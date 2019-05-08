@@ -1,72 +1,40 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Repository, Container } from './styles';
 
-const CompareList = () => (
+const CompareList = ({ repositories }) => (
   <Container>
-    <Repository>
-      <header>
-        <img src="https://avatars3.githubusercontent.com/u/69631?v=4" alt="Facebook" />
-        <strong>React</strong>
-        <small>facebook</small>
-      </header>
-      <ul>
-        <li>
-          95 <small>Stars</small>
-        </li>
-        <li>
-          12 <small>Forks</small>
-        </li>
-        <li>
-          12 <small>Issues</small>
-        </li>
-        <li>
-          3 days ago <small>Last commit</small>
-        </li>
-      </ul>
-    </Repository>
-    <Repository>
-      <header>
-        <img src="https://avatars3.githubusercontent.com/u/69631?v=4" alt="Facebook" />
-        <strong>React</strong>
-        <small>facebook</small>
-      </header>
-      <ul>
-        <li>
-          95 <small>Stars</small>
-        </li>
-        <li>
-          12 <small>Forks</small>
-        </li>
-        <li>
-          12 <small>Issues</small>
-        </li>
-        <li>
-          3 days ago <small>Last commit</small>
-        </li>
-      </ul>
-    </Repository>
-    <Repository>
-      <header>
-        <img src="https://avatars3.githubusercontent.com/u/69631?v=4" alt="Facebook" />
-        <strong>React</strong>
-        <small>facebook</small>
-      </header>
-      <ul>
-        <li>
-          95 <small>Stars</small>
-        </li>
-        <li>
-          12 <small>Forks</small>
-        </li>
-        <li>
-          12 <small>Issues</small>
-        </li>
-        <li>
-          3 days ago <small>Last commit</small>
-        </li>
-      </ul>
-    </Repository>
+    {repositories.map(repository => (
+      <Repository key={repository.id}>
+        <header>
+          <img src={repository.owner.avatar_url} alt={repository.owner.login} />
+          <strong>{repository.name}</strong>
+          <small>{repository.owner.login}</small>
+        </header>
+        <ul>
+          <li>
+            {repository.stargazers_count} <small>Stars</small>
+          </li>
+          <li>
+            {repository.forks_count} <small>Forks</small>
+          </li>
+          <li>
+            {repository.open_issues_count} <small>Issues</small>
+          </li>
+          <li>
+            {repository.pushed_at} <small>Last commit</small>
+          </li>
+        </ul>
+      </Repository>
+    ))}
   </Container>
 );
-
+CompareList.propTypes = {
+  repositories: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+    }),
+  ).isRequired,
+};
 export default CompareList;

@@ -1,18 +1,43 @@
-import React from 'react';
-
+import React, { Component } from 'react';
+import api from '../../service/api';
 import logo from '../../assets/logo.png';
 import { Container, Form } from './styles';
 import CompareList from '../../components/CompareList/index';
 
-const Main = () => (
-  <Container>
-    <img src={logo} alt="Github Compare" />
-    <Form>
-      <input type="text" placeholder="user/repository" />
-      <button type="submit">submit</button>
-    </Form>
-    <CompareList />
-  </Container>
-);
+export default class main extends Component {
+  state = {
+    repositoryInput: '',
+    repositories: [],
+  };
 
-export default Main;
+  handleAddRepository = async (e) => {
+    e.preventDefault();
+    const { repositoryInput } = this.state;
+    const response = await api.get(`${repositoryInput}`);
+    const { repositories } = this.state;
+    this.setState({
+      repositoryInput: '',
+      repositories: [...repositories, response.data],
+    });
+  };
+
+  render() {
+    return (
+      <Container>
+        <img src={logo} alt="Github Compare" />
+        <Form onSubmit={this.handleAddRepository}>
+          <input
+            type="text"
+            placeholder="user/repository"
+            // eslint-disable-next-line react/destructuring-assignment
+            value={this.state.repositoryInput}
+            onChange={e => this.setState({ repositoryInput: e.target.value })}
+          />
+          <button type="submit">submit</button>
+        </Form>
+        {/* eslint-disable-next-line react/destructuring-assignment */}
+        <CompareList repositories={this.state.repositories} />
+      </Container>
+    );
+  }
+}
