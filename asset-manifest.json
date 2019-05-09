@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/Github-Compare/static/css/main.795991f2.chunk.css",
+    "main.js": "/Github-Compare/static/js/main.ec5ae626.chunk.js",
+    "main.js.map": "/Github-Compare/static/js/main.ec5ae626.chunk.js.map",
+    "runtime~main.js": "/Github-Compare/static/js/runtime~main.e20d4156.js",
+    "runtime~main.js.map": "/Github-Compare/static/js/runtime~main.e20d4156.js.map",
+    "static/css/2.ca128dd9.chunk.css": "/Github-Compare/static/css/2.ca128dd9.chunk.css",
+    "static/js/2.44103794.chunk.js": "/Github-Compare/static/js/2.44103794.chunk.js",
+    "static/js/2.44103794.chunk.js.map": "/Github-Compare/static/js/2.44103794.chunk.js.map",
+    "index.html": "/Github-Compare/index.html",
+    "precache-manifest.9af2bd757c0c91cfd2fdedfe9f94fb20.js": "/Github-Compare/precache-manifest.9af2bd757c0c91cfd2fdedfe9f94fb20.js",
+    "service-worker.js": "/Github-Compare/service-worker.js",
+    "static/css/2.ca128dd9.chunk.css.map": "/Github-Compare/static/css/2.ca128dd9.chunk.css.map",
+    "static/css/main.795991f2.chunk.css.map": "/Github-Compare/static/css/main.795991f2.chunk.css.map",
+    "static/media/font-awesome.css": "/Github-Compare/static/media/fontawesome-webfont.fee66e71.woff"
+  }
+}
