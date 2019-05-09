@@ -1,6 +1,6 @@
 # GitHub Compare
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Screenshot from 2019-05-09 09-35-43](https://user-images.githubusercontent.com/32393870/57453865-d85c2600-723d-11e9-93e5-4f494c06e0f4.png)
 
 ## Available Scripts
 
