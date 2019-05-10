@@ -46,4 +46,14 @@ export const Repository = styled.div`
       }
     }
   }
+  button {
+    background: #52d89f;
+    color: #fff;
+    border: 0;
+    font-size: 20px;
+    font-weight: bold;
+    &:hover {
+      background: #42c48d;
+    }
+  }
 `;

@@ -13,6 +13,14 @@ export default class main extends Component {
     repositories: JSON.parse(localStorage.getItem('repositories')) || [],
   };
 
+  handleDelRepository = async (e) => {
+    e.preventDefault();
+    const { repositories } = this.state;
+    repositories.splice(e.target.value, 1);
+    this.setState({ repositories });
+    localStorage.setItem('repositories', JSON.stringify(repositories));
+  };
+
   handleAddRepository = async (e) => {
     e.preventDefault();
     this.setState({ loading: true });
@@ -27,6 +35,7 @@ export default class main extends Component {
         repositories: [...repositories, response.data],
         repositoryError: false,
       });
+      // eslint-disable-next-line react/destructuring-assignment
       localStorage.setItem('repositories', JSON.stringify(this.state.repositories));
     } catch (err) {
       this.setState({ repositoryError: true });
@@ -54,7 +63,7 @@ export default class main extends Component {
           </button>
         </Form>
         {/* eslint-disable-next-line react/destructuring-assignment */}
-        <CompareList repositories={this.state.repositories} />
+        <CompareList repositories={this.state.repositories} onClick={this.handleDelRepository} />
       </Container>
     );
   }
