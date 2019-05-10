@@ -10,7 +10,7 @@ export default class main extends Component {
     loading: false,
     repositoryError: false,
     repositoryInput: '',
-    repositories: [],
+    repositories: JSON.parse(localStorage.getItem('repositories')) || [],
   };
 
   handleAddRepository = async (e) => {
@@ -27,6 +27,7 @@ export default class main extends Component {
         repositories: [...repositories, response.data],
         repositoryError: false,
       });
+      localStorage.setItem('repositories', JSON.stringify(this.state.repositories));
     } catch (err) {
       this.setState({ repositoryError: true });
     } finally {
